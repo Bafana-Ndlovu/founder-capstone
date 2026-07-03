@@ -9,7 +9,7 @@ strict mode, no `any`).
 
 ## 🔗 Live demo
 
-netlify url: https://toolender.netlify.app/
+netlify url: https://toollending.netlify.app/
 
 ## Run it locally
 
