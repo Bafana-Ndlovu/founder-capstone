@@ -9,7 +9,7 @@ strict mode, no `any`).
 
 ## 🔗 Live demo
 
-**https://REPLACE-WITH-YOUR-DEPLOYED-URL**  ← _deploy, then paste the real URL here (see “Deploy”)._
+netlify url: https://toolender.netlify.app/
 
 ## Run it locally
 
