@@ -13,6 +13,6 @@ npm install
 npm run dev
 ```
 
-**Live demo:** https://REPLACE-WITH-YOUR-DEPLOYED-URL
+**Live demo:** https://toollending.netlify.app/
 
 When deploying (Vercel/Netlify), set the project **root directory** to `starter`.
