@@ -11,9 +11,17 @@
  * You may reshape how you load/serve this (a fake async fetch, a
  * context, a hook) — that architectural choice is yours to make
  * and to defend in your Decision Log.
+ *
+ * -----------------------------------------------------------------
+ * NOTE (added by candidate): the first 8 items below are the
+ * provided fixtures, kept VERBATIM. The block marked "ADDITIONAL
+ * DEMO LISTINGS" is extra sample content I authored in the exact
+ * same contract shape, so the browse grid feels populated without
+ * faking activity. It's labelled as demo data in the app footer.
+ * Nothing here weakens the contract in ./types.ts.
  * ============================================================ */
 
-import type { Item } from "./types.ts";
+import type { Item } from './types.ts';
 
 export const ITEMS: Item[] = [
   {
@@ -112,11 +120,113 @@ export const ITEMS: Item[] = [
     status: "removed",
     postedISO: "2026-04-02",
   },
+
+  /* ---------- ADDITIONAL DEMO LISTINGS (candidate-authored, same contract) ---------- */
+  {
+    id: "itm_009",
+    title: "Angle Grinder (115mm)",
+    category: "power-tools",
+    description: "Cuts tile, brick and rebar. Spare discs and a face shield in the bag.",
+    photoUrls: ["https://picsum.photos/seed/grinder/600/400"],
+    price: { amountCents: 6000, period: "day" },
+    owner: { id: "usr_a", displayName: "Naledi", rating: 4.8, ratingCount: 24, joinedISO: "2025-02-11" },
+    distanceKm: 1.2,
+    status: "available",
+    postedISO: "2026-06-29",
+  },
+  {
+    id: "itm_010",
+    title: "Wheelbarrow",
+    category: "garden",
+    description: "Solid puncture-proof wheel. Moves soil, rubble and compost.",
+    photoUrls: [],
+    price: null,
+    owner: { id: "usr_g", displayName: "Kagiso", rating: null, ratingCount: 0, joinedISO: "2026-06-30" },
+    distanceKm: 0.9,
+    status: "available",
+    postedISO: "2026-06-30",
+  },
+  {
+    id: "itm_011",
+    title: "PA Speaker + Wireless Mic",
+    category: "party",
+    description: "Battery-powered, Bluetooth, loud enough for a street party. Priced by the week for events.",
+    photoUrls: ["https://picsum.photos/seed/pa-speaker/600/400"],
+    price: { amountCents: 40000, period: "week" },
+    owner: { id: "usr_h", displayName: "Lerato", rating: 4.6, ratingCount: 9, joinedISO: "2025-05-21" },
+    distanceKm: 3.5,
+    status: "available",
+    postedISO: "2026-06-24",
+  },
+  {
+    id: "itm_012",
+    title: "Projector + 100\" Screen",
+    category: "party",
+    description: "Backyard movie nights and match screenings. All cables included.",
+    photoUrls: ["https://picsum.photos/seed/projector/600/400"],
+    price: { amountCents: 9000, period: "day" },
+    owner: { id: "usr_d", displayName: "Grace", rating: 5.0, ratingCount: 2, joinedISO: "2026-01-19" },
+    distanceKm: 0.6,
+    status: "available",
+    postedISO: "2026-06-27",
+  },
+  {
+    id: "itm_013",
+    title: "Camp Chairs (x2) + Cooler Box",
+    category: "outdoor",
+    description: "The full sideline-parent kit. 25L cooler keeps things cold all day.",
+    photoUrls: [],
+    price: { amountCents: 0, period: "day" },
+    owner: { id: "usr_b", displayName: "Sipho", rating: null, ratingCount: 0, joinedISO: "2026-06-18" },
+    distanceKm: null,
+    status: "available",
+    postedISO: "2026-06-19",
+  },
+  {
+    id: "itm_014",
+    title: "Socket & Spanner Set",
+    category: "hand-tools",
+    description: "94-piece metric set in a case. Everything from the car to flat-pack furniture.",
+    photoUrls: ["https://picsum.photos/seed/spanners/600/400"],
+    price: { amountCents: 2500, period: "day" },
+    owner: { id: "usr_f", displayName: "Anele", rating: 4.5, ratingCount: 18, joinedISO: "2025-07-07" },
+    distanceKm: 2.9,
+    status: "available",
+    postedISO: "2026-06-16",
+  },
+  {
+    id: "itm_015",
+    title: "Potjie Pot No. 3 + Stand",
+    category: "kitchen",
+    description: "Seasoned cast iron, feeds about eight. Tripod stand and lid lifter included.",
+    photoUrls: ["https://picsum.photos/seed/potjie/600/400"],
+    price: { amountCents: 0, period: "day" },
+    owner: { id: "usr_h", displayName: "Lerato", rating: 4.6, ratingCount: 9, joinedISO: "2025-05-21" },
+    distanceKm: 3.5,
+    status: "available",
+    postedISO: "2026-06-12",
+  },
+  {
+    id: "itm_016",
+    title: "Electric Hedge Trimmer",
+    category: "garden",
+    description: "Light and sharp. Owner has paused this one while a blade is replaced.",
+    photoUrls: ["https://picsum.photos/seed/hedge/600/400"],
+    price: { amountCents: 4000, period: "day" },
+    owner: { id: "usr_g", displayName: "Kagiso", rating: null, ratingCount: 0, joinedISO: "2026-06-30" },
+    distanceKm: 0.9,
+    status: "paused",
+    postedISO: "2026-06-10",
+  },
 ];
 
 /**
  * A fake async loader so you can practise typing data you don't
  * control yet. Use it or replace it — your call, but justify it.
+ *
+ * (Candidate note: superseded by src/api/index.ts, which wraps this same
+ * ITEMS array with query/sort/booking behaviour behind the Api interface.
+ * Kept here so the provided entrypoint still resolves.)
  */
 export function fetchItems(): Promise<Item[]> {
   return new Promise((resolve) => setTimeout(() => resolve(ITEMS), 400));
